@@ -1,0 +1,42 @@
+{
+  "defaultProtocolVersion": "2025-11-05",
+  "mcpServers": {
+    "github": {
+      "transport": "stdio",
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-github"],
+      "env": {
+        "GITHUB_PERSONAL_ACCESS_TOKEN": "${GITHUB_PERSONAL_ACCESS_TOKEN}"
+      }
+    },
+    "dokploy": {
+      "transport": "stdio",
+      "command": "npx",
+      "args": ["-y", "@ahdev/dokploy-mcp"],
+      "env": {
+        "DOKPLOY_URL": "${DOKPLOY_URL}",
+        "DOKPLOY_API_KEY": "${DOKPLOY_API_KEY}"
+      }
+    },
+    "postgres-prod": {
+      "transport": "stdio",
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-postgres", "${POSTGRES_PROD_URL}"]
+    },
+    "postgres-dev": {
+      "transport": "stdio",
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-postgres", "${POSTGRES_DEV_URL}"]
+    },
+    "remote-ssh": {
+      "transport": "stdio",
+      "command": "npx",
+      "args": ["-y", "@aiondadotcom/mcp-ssh"],
+      "env": {
+        "SSH_HOST": "${SSH_HOST}",
+        "SSH_USER": "${SSH_USER}",
+        "SSH_PRIVATE_KEY_PATH": "${SSH_PRIVATE_KEY_PATH}"
+      }
+    }
+  }
+}
