@@ -1,0 +1,42 @@
+# MicroClaw Configuration for b2bscaler
+
+# Telegram Configuration
+channels:
+  telegram:
+    default_account: "main"
+    accounts:
+      main:
+        bot_token: "${TELEGRAM_BOT_TOKEN}"
+        bot_username: "nanobot"
+        allowed_user_ids:
+          - "Adaca305"
+
+# LLM Provider - MiniMax
+llm_provider: "minimax"
+api_key: "${MINIMAX_API_KEY}"
+model: "minimax/minimax-m2.5"
+
+# Additional LLM providers
+llm_providers:
+  openrouter:
+    api_key: "${OPENROUTER_API_KEY}"
+
+
+# Data and Working directories
+data_dir: "~/.microclaw"
+working_dir: "~/.microclaw/working_dir"
+
+# Configuration
+max_tokens: 8192
+max_tool_iterations: 100
+max_history_messages: 50
+max_session_messages: 40
+compact_keep_recent: 20
+memory_token_budget: 1500
+timezone: "UTC"
+
+# Web UI
+web_enabled: true
+
+# Soul/Personality file
+soul_path: "~/.microclaw/soul.md"
